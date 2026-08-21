@@ -1,10 +1,10 @@
 /* --- Variables & Reset --- */
 :root {
-    --primary: #0a84ff;
-    --primary-dark: #0056b3;
-    --secondary: #00d27f;
-    --dark: #000f1e;
-    --dark-alt: #0a192f;
+    --primary: #10b981;
+    --primary-dark: #047857;
+    --secondary: #34d399;
+    --dark: #022c22;
+    --dark-alt: #064e3b;
     --light: #f8f9fa;
     --gray: #a0aec0;
     --text-main: #2d3748;
@@ -144,15 +144,15 @@ blockquote {
 }
 
 .btn-primary {
-    background: linear-gradient(90deg, var(--primary), #0066cc);
+    background: linear-gradient(90deg, var(--primary), var(--primary-dark));
     color: #fff;
-    box-shadow: 0 4px 15px rgba(10, 132, 255, 0.3);
+    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
 }
 
 .btn-primary:hover {
-    background: linear-gradient(270deg, var(--primary), #06c);
+    background: linear-gradient(270deg, var(--primary), var(--primary-dark));
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(10, 132, 255, 0.4);
+    box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
 }
 
 .btn-secondary {
@@ -422,13 +422,13 @@ header.scrolled .hamburger {
 .feature-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
-    border-color: rgba(10, 132, 255, 0.2);
+    border-color: rgba(16, 185, 129, 0.2);
 }
 
 .feature-icon {
     width: 56px;
     height: 56px;
-    background: rgba(10, 132, 255, 0.1);
+    background: rgba(16, 185, 129, 0.1);
     color: var(--primary);
     border-radius: 14px;
     display: flex;
@@ -587,7 +587,7 @@ header.scrolled .hamburger {
 }
 
 .quote-icon {
-    color: rgba(10, 132, 255, 0.1);
+    color: rgba(16, 185, 129, 0.1);
     font-size: 3rem;
     position: absolute;
     top: 1.5rem;
@@ -687,7 +687,7 @@ header.scrolled .hamburger {
 .info-box .icon {
     width: 50px;
     height: 50px;
-    background: rgba(10, 132, 255, 0.1);
+    background: rgba(16, 185, 129, 0.1);
     color: var(--primary);
     border-radius: 12px;
     display: flex;
