@@ -1,15 +1,27 @@
 /* --- Variables & Reset --- */
 :root {
+    /* Recommended Green Palette Hierarchy */
+    /* 1. Dominant / Primary (Medium Green) - Primary buttons, main branding accents, key interactive states */
     --primary: #10b981;
-    --primary-dark: #047857;
+    --primary-dark: #059669;
+    --primary-hover: #047857;
     --secondary: #34d399;
-    --dark: #022c22;
-    --dark-alt: #064e3b;
-    --light: #f8f9fa;
-    --gray: #a0aec0;
-    --text-main: #2d3748;
-    --glass-bg: rgba(255, 255, 255, 0.05);
-    --glass-border: rgba(255, 255, 255, 0.1);
+
+    /* 2. Backgrounds / Surfaces (Light Tint / Tinted Neutrals) - Section backgrounds, card containers, subtle alerts, badges */
+    --surface-light: #f0fdf4;
+    --surface-tint: #e6f4ea;
+    --light: #f8faf9;
+    --card-bg: #ffffff;
+    --glass-bg: rgba(255, 255, 255, 0.08);
+    --glass-border: rgba(16, 185, 129, 0.15);
+
+    /* 3. Typography / Contrast (Dark Shade) - Headings, primary body text, high-contrast UI elements */
+    --dark: #064e3b;
+    --dark-deep: #032b1f;
+    --dark-alt: #083b2c;
+    --text-main: #14532d;
+    --text-muted: #375344;
+    --gray: #6b8273;
 
     --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
@@ -110,11 +122,11 @@ h4 {
 }
 
 .bg-dark {
-    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    background-color: #22411f;
 }
 
 .bg-light {
-    background-color: #fff;
+    background-color: var(--surface-light);
 }
 
 .bg-card-dark {
@@ -150,20 +162,21 @@ blockquote {
 }
 
 .btn-primary:hover {
-    background: linear-gradient(270deg, var(--primary), var(--primary-dark));
+    background: linear-gradient(270deg, var(--primary), var(--primary-hover));
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+    box-shadow: 0 6px 20px rgba(16, 185, 129, 0.45);
 }
 
 .btn-secondary {
     background: transparent;
     color: #fff;
-    border: 1px solid #fff;
+    border: 1px solid rgba(255, 255, 255, 0.7);
 }
 
 .btn-secondary:hover {
     background: #fff;
     color: var(--dark);
+    border-color: #fff;
 }
 
 .btn-large {
@@ -172,7 +185,7 @@ blockquote {
 }
 
 .btn-text {
-    color: var(--primary);
+    color: var(--primary-dark);
     font-weight: 600;
     display: inline-flex;
     align-items: center;
@@ -181,7 +194,7 @@ blockquote {
 
 .btn-text:hover {
     gap: 0.8rem;
-    color: var(--primary-dark);
+    color: var(--dark);
 }
 
 .w-100 {
@@ -201,10 +214,10 @@ header {
 }
 
 header.scrolled {
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(255, 255, 255, 0.96);
     backdrop-filter: blur(10px);
     padding: 1rem 0;
-    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 2px 20px rgba(6, 78, 59, 0.08);
 }
 
 header.scrolled .logo-text,
@@ -269,7 +282,11 @@ header.scrolled .logo-img {
 }
 
 .nav-links li a:not(.btn-primary):hover {
-    color: var(--primary);
+    color: var(--secondary);
+}
+
+header.scrolled .nav-links li a:not(.btn-primary):hover {
+    color: var(--primary-dark);
 }
 
 .hamburger {
@@ -312,7 +329,7 @@ header.scrolled .hamburger {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: linear-gradient(rgba(0, 15, 30, 0.7), rgba(0, 15, 30, 0.7));
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5));
     z-index: -1;
 }
 
@@ -327,8 +344,9 @@ header.scrolled .hamburger {
 }
 
 .badge {
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(240, 253, 244, 0.15);
+    border: 1px solid rgba(240, 253, 244, 0.3);
+    color: #ffffff;
     padding: 0.5rem 1rem;
     border-radius: 50px;
     font-size: 0.85rem;
@@ -340,13 +358,15 @@ header.scrolled .hamburger {
 .hero-content p {
     font-size: 1.2rem;
     margin-bottom: 2rem;
-    opacity: 0.9;
+    opacity: 0.95;
+    color: #e6f4ea;
 }
 
 .hero-content .subtext {
     font-size: 1rem;
-    opacity: 0.7;
+    opacity: 0.85;
     max-width: 600px;
+    color: #d1fae5;
 }
 
 .hero-buttons {
@@ -360,24 +380,23 @@ header.scrolled .hamburger {
     grid-template-columns: 1fr 1fr;
     gap: 4rem;
     align-items: flex-start;
-    /* Required for sticky */
 }
 
 .about-text {
     position: sticky;
     top: 120px;
-    /* Sticks below the header */
 }
 
 .section-title {
     font-size: 2.5rem;
     position: relative;
     display: inline-block;
+    color: var(--dark);
 }
 
 .about-text p {
     margin-bottom: 1.5rem;
-    color: #4a5568;
+    color: var(--text-muted);
 }
 
 .about-features {
@@ -391,10 +410,10 @@ header.scrolled .hamburger {
     flex-direction: column;
     align-items: flex-start;
     padding: 2.5rem;
-    background: #fff;
-    border: 1px solid rgba(0, 0, 0, 0.05);
+    background: var(--card-bg);
+    border: 1px solid rgba(16, 185, 129, 0.12);
     border-radius: 16px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+    box-shadow: 0 4px 20px rgba(6, 78, 59, 0.04);
     transition: var(--transition);
     position: sticky;
 }
@@ -421,15 +440,15 @@ header.scrolled .hamburger {
 
 .feature-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
-    border-color: rgba(16, 185, 129, 0.2);
+    box-shadow: 0 15px 40px rgba(6, 78, 59, 0.1);
+    border-color: rgba(16, 185, 129, 0.3);
 }
 
 .feature-icon {
     width: 56px;
     height: 56px;
-    background: rgba(16, 185, 129, 0.1);
-    color: var(--primary);
+    background: var(--surface-tint);
+    color: var(--primary-dark);
     border-radius: 14px;
     display: flex;
     align-items: center;
@@ -447,7 +466,7 @@ header.scrolled .hamburger {
 
 .feature-card p {
     font-size: 1rem;
-    color: #4a5568;
+    color: var(--text-muted);
     line-height: 1.6;
 }
 
@@ -461,11 +480,11 @@ header.scrolled .hamburger {
 
 .stat-card {
     padding: 2rem;
-    background: rgba(255, 255, 255, 1);
+    background: rgba(255, 255, 255, 0.08);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     border-radius: 20px;
-    border: 1px solid var(--glass-border);
+    border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 .stat-number {
@@ -485,7 +504,7 @@ header.scrolled .hamburger {
 .stat-card p {
     margin-top: 1rem;
     font-size: 1.1rem;
-    color: var(--gray);
+    color: #e2e8f0;
 }
 
 /* --- Services Section --- */
@@ -496,16 +515,18 @@ header.scrolled .hamburger {
 }
 
 .service-card {
-    background: #fff;
+    background: var(--card-bg);
     border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 15px 40px rgba(6, 78, 59, 0.06);
+    border: 1px solid rgba(16, 185, 129, 0.12);
     transition: var(--transition);
 }
 
 .service-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 20px 50px rgba(6, 78, 59, 0.12);
+    border-color: rgba(16, 185, 129, 0.3);
 }
 
 .service-image {
@@ -532,10 +553,11 @@ header.scrolled .hamburger {
 .service-content h3 {
     font-size: 1.5rem;
     margin-bottom: 1rem;
+    color: var(--dark);
 }
 
 .service-content p {
-    color: #4a5568;
+    color: var(--text-muted);
     margin-bottom: 1.5rem;
 }
 
@@ -556,10 +578,11 @@ header.scrolled .hamburger {
 .testimonial-card {
     flex: 0 0 min(100%, 400px);
     scroll-snap-align: center;
-    background: #fff;
+    background: var(--card-bg);
     padding: 2.5rem;
     border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+    box-shadow: 0 10px 30px rgba(6, 78, 59, 0.05);
+    border: 1px solid rgba(16, 185, 129, 0.12);
     position: relative;
 }
 
@@ -576,7 +599,7 @@ header.scrolled .hamburger {
     width: 12px;
     height: 12px;
     border-radius: 50%;
-    background: var(--gray);
+    background: #cbd5e1;
     cursor: pointer;
     transition: var(--transition);
 }
@@ -587,7 +610,7 @@ header.scrolled .hamburger {
 }
 
 .quote-icon {
-    color: rgba(16, 185, 129, 0.1);
+    color: rgba(16, 185, 129, 0.15);
     font-size: 3rem;
     position: absolute;
     top: 1.5rem;
@@ -597,7 +620,7 @@ header.scrolled .hamburger {
 .quote-text {
     font-size: 1.1rem;
     font-style: italic;
-    color: #4a5568;
+    color: var(--text-main);
     margin-bottom: 2rem;
     position: relative;
     z-index: 1;
@@ -617,13 +640,16 @@ header.scrolled .hamburger {
 .client-details h4 {
     margin-bottom: 0.2rem;
     font-size: 1.1rem;
+    color: var(--dark);
 }
 
 .client-details p {
     font-size: 0.9rem;
-    color: var(--primary);
+    color: var(--primary-dark);
+    font-weight: 500;
 }
 
+#stats .section-title,
 #locations .section-title {
     color: #fff;
 }
@@ -638,11 +664,11 @@ header.scrolled .hamburger {
 
 .location-tag {
     padding: 0.8rem 1.5rem;
-    background: #fff;
-    border: 1px solid var(--glass-border);
+    background: var(--surface-light);
+    border: 1px solid rgba(16, 185, 129, 0.25);
     border-radius: 50px;
     font-weight: 500;
-    color: var(--primary);
+    color: var(--dark);
     transition: var(--transition);
 }
 
@@ -678,17 +704,18 @@ header.scrolled .hamburger {
     gap: 1.5rem;
     margin-bottom: 1.5rem;
     align-items: flex-start;
-    background: #fff;
+    background: var(--card-bg);
     padding: 1.5rem;
     border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 10px 30px rgba(6, 78, 59, 0.05);
+    border: 1px solid rgba(16, 185, 129, 0.12);
 }
 
 .info-box .icon {
     width: 50px;
     height: 50px;
-    background: rgba(16, 185, 129, 0.1);
-    color: var(--primary);
+    background: var(--surface-tint);
+    color: var(--primary-dark);
     border-radius: 12px;
     display: flex;
     align-items: center;
@@ -699,6 +726,7 @@ header.scrolled .hamburger {
 
 .info-box h4 {
     margin-bottom: 0.5rem;
+    color: var(--dark);
 }
 
 .info-box p,
@@ -708,12 +736,12 @@ header.scrolled .hamburger {
 }
 
 .info-box a:hover {
-    color: var(--primary);
+    color: var(--primary-dark);
 }
 
 /* --- Footer & Contact --- */
 .footer {
-    background: var(--dark);
+    background: #000000;
     color: #fff;
     padding: 5rem 0 2rem;
 }
@@ -755,11 +783,11 @@ header.scrolled .hamburger {
     display: flex;
     align-items: center;
     gap: 1rem;
-    color: var(--gray);
+    color: #cbd5e1;
 }
 
 .contact-details i {
-    color: var(--primary);
+    color: var(--secondary);
     font-size: 1.2rem;
     width: 20px;
 }
@@ -776,11 +804,11 @@ header.scrolled .hamburger {
 }
 
 .footer-links a {
-    color: var(--gray);
+    color: #cbd5e1;
 }
 
 .footer-links a:hover {
-    color: var(--primary);
+    color: var(--secondary);
     padding-left: 5px;
 }
 
@@ -920,7 +948,7 @@ select option {
         right: -100%;
         width: 80%;
         height: 100vh;
-        background: rgba(0, 15, 30, 0.98);
+        background: rgba(3, 43, 31, 0.98);
         backdrop-filter: blur(15px);
         -webkit-backdrop-filter: blur(15px);
         flex-direction: column;
