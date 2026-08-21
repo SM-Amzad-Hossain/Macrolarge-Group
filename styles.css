@@ -114,7 +114,7 @@ h4 {
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 2rem;
+    padding: 0 1.25rem;
 }
 
 .section-padding {
@@ -926,6 +926,11 @@ select option {
     .contact-page-grid {
         grid-template-columns: 1fr;
         gap: 3rem;
+    }
+
+    .about-text {
+        position: static;
+        top: auto;
     }
 
     .stats-grid {
